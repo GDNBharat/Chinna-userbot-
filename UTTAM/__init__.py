@@ -1,5 +1,6 @@
 from pyrogram import Client
 from config import API_ID
+import time
 
 StartTime = time.time()
 START_TIME = datetime.now()
