@@ -1,88 +1,81 @@
 from pyrogram import Client
-from config import API_ID
+from datetime import datetime
 import time
 
+# Configuration and constants
+API_ID = "your_api_id"  # Replace with your actual API_ID
+API_HASH = "your_api_hash"  # Replace with your actual API_HASH
+BOT_TOKEN = "your_bot_token"  # Replace with your actual BOT_TOKEN
+SUDO_USERS = []  # Define your SUDO_USERS
+OWNER_ID = "your_owner_id"  # Replace with your actual OWNER_ID
+
+# Assume STRING_SESSION1 to STRING_SESSION10 are defined somewhere
+STRING_SESSION1 = None  # Example, replace with actual session strings
+STRING_SESSION2 = None
+STRING_SESSION3 = None
+STRING_SESSION4 = None
+STRING_SESSION5 = None
+STRING_SESSION6 = None
+STRING_SESSION7 = None
+STRING_SESSION8 = None
+STRING_SESSION9 = None
+STRING_SESSION10 = None
+
 StartTime = time.time()
-START_TIME = datetime.now()
 CMD_HELP = {}
-SUDO_USER = SUDO_USERS
 clients = []
-ids = []
 
 SUDO_USERS.append(OWNER_ID)
 
-if API_ID:
-   API_ID = API_ID
-else:
-   print("WARNING: API ID NOT FOUND USING UTTAM API ⚡")
-   API_ID = "27079591"
+def validate_config():
+    global API_ID, API_HASH
+    if not API_ID:
+        print("WARNING: API ID NOT FOUND USING NOBITA API ⚡")
+        API_ID = "27079591"
+    if not API_HASH:
+        print("WARNING: API HASH NOT FOUND USING NOBITA API ⚡")
+        API_HASH = "c81ae4c3dc026ea4bf49842a8ce4a5f9"
+    if not BOT_TOKEN:
+        raise ValueError("WARNING: BOT TOKEN NOT FOUND. PLEASE ADD ⚡")
 
-if API_HASH:
-   API_HASH = API_HASH
-else:
-   print("WARNING: API HASH NOT FOUND USING UTTAM API ⚡")   
-   API_HASH = "c81ae4c3dc026ea4bf49842a8ce4a5f9"
+validate_config()
 
-if not BOT_TOKEN:
-   print("WARNING: BOT TOKEN NOT FOUND PLZ ADD ⚡")   
-
-# Main bot client with plugins folder
+# Main bot client
 app = Client(
     name="app",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
-    plugins=dict(root="UTTAM/plugins"),  # Plugins directory ka root
+    plugins=dict(root="UTTAM/plugins"),
     in_memory=True,
 )
 
-# Additional clients using session strings, all loading plugins from the same folder
-if STRING_SESSION1:
-   print("Client1: Found.. Starting..📳")
-   client1 = Client(name="one", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION1, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client1)
+def create_clients():
+    for i in range(1, 11):
+        session_var = globals().get(f'STRING_SESSION{i}')
+        if session_var:
+            print(f"Client{i}: Found.. Starting.. 📳")
+            client = Client(
+                name=f"client{i}",
+                api_id=API_ID,
+                api_hash=API_HASH,
+                session_string=session_var,
+                plugins=dict(root="UTTAM/plugins")
+            )
+            clients.append(client)
 
-if STRING_SESSION2:
-   print("Client2: Found.. Starting.. 📳")
-   client2 = Client(name="two", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION2, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client2)
+create_clients()
 
-if STRING_SESSION3:
-   print("Client3: Found.. Starting.. 📳")
-   client3 = Client(name="three", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION3, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client3)
+# Start all clients
+for client in clients:
+    try:
+        client.start()
+        print(f"{client.name} started successfully.")
+    except Exception as e:
+        print(f"Failed to start {client.name}: {e}")
 
-if STRING_SESSION4:
-   print("Client4: Found.. Starting.. 📳")
-   client4 = Client(name="four", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION4, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client4)
+# Add your bot logic here...
 
-if STRING_SESSION5:
-   print("Client5: Found.. Starting.. 📳")
-   client5 = Client(name="five", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION5, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client5)
-
-if STRING_SESSION6:
-   print("Client6: Found.. Starting.. 📳")
-   client6 = Client(name="six", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION6, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client6)
-
-if STRING_SESSION7:
-   print("Client7: Found.. Starting.. 📳")
-   client7 = Client(name="seven", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION7, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client7)
-
-if STRING_SESSION8:
-   print("Client8: Found.. Starting.. 📳")
-   client8 = Client(name="eight", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION8, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client8)
-
-if STRING_SESSION9:
-   print("Client9: Found.. Starting.. 📳")
-   client9 = Client(name="nine", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION9, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client9)
-
-if STRING_SESSION10:
-   print("Client10: Found.. Starting.. 📳")
-   client10 = Client(name="ten", api_id=API_ID, api_hash=API_HASH, session_string=STRING_SESSION10, plugins=dict(root="UTTAM/plugins"))
-   clients.append(client10)
+# Don't forget to run the main app if needed
+if __name__ == "__main__":
+    app.run()
