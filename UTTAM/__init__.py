@@ -30,10 +30,10 @@ SUDO_USERS.append(OWNER_ID)
 def validate_config():
     global API_ID, API_HASH
     if not API_ID:
-        print("WARNING: API ID NOT FOUND USING NOBITA API ⚡")
+        print("WARNING: API ID NOT FOUND USING UTTAM API ⚡")
         API_ID = "27079591"
     if not API_HASH:
-        print("WARNING: API HASH NOT FOUND USING NOBITA API ⚡")
+        print("WARNING: API HASH NOT FOUND USING UTTAM API ⚡")
         API_HASH = "c81ae4c3dc026ea4bf49842a8ce4a5f9"
     if not BOT_TOKEN:
         raise ValueError("WARNING: BOT TOKEN NOT FOUND. PLEASE ADD ⚡")
