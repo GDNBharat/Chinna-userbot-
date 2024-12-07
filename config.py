@@ -6,10 +6,10 @@ if os.path.exists("local.env"):
     load_dotenv("local.env")
 
 
-API_ID = int(getenv("API_ID", "23961027")) #optional
-API_HASH = getenv("API_HASH", "f3add6d66bd20a3ae78e385e81f1df8a") #optional
+API_ID = int(getenv("API_ID", "28362850")) #optional
+API_HASH = getenv("API_HASH", "34f9cb93364db16fc45d003e4c81d97a") #optional
 
-SUDO_USERS = list(map(int, getenv("SUDO_USERS", "6242589578").split()))
+SUDO_USERS = list(map(int, getenv("SUDO_USERS", "7588442909").split()))
 OWNER_ID = int(getenv("OWNER_ID", "6641988750"))
 MONGO_URL = getenv("MONGO_URL", "mongodb+srv://vishalpandeynkp:Bal6Y6FZeQeoAoqV@cluster0.dzgwt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 ALIVE_PIC = getenv("ALIVE_PIC", "")
