@@ -17,7 +17,7 @@ ALIVE_TEXT = getenv("ALIVE_TEXT")
 PM_LOGGER = getenv("PM_LOGGER")
 LOG_GROUP = getenv("LOG_GROUP","-1002141779241")
 GIT_TOKEN = getenv("GIT_TOKEN") #personal access token
-REPO_URL = getenv("REPO_URL", "https://github.com/vishalpandeynkp1/NOBITA-MUSIC-USERBOT")
+REPO_URL = getenv("REPO_URL", "https://github.com/GDNBharat/Chinna-userbot-")
 BRANCH = getenv("BRANCH", "main") #don't change
  
 STRING_SESSION1 = getenv("STRING_SESSION1", "BQGwyGIAEvzTBeHrzv9vZtRFnNZM2q0tEG-IVScMlkXd1SuXMAqAfsxOU2-DLuJfBMHfiNTX36oNhH_-IBfOk9irMEaaYYDy33MwoHM7K4d5G6OKllEpUH1Ih1LlFv6jVuMkSA9iQuD0XBPHdcpp7P5PMpWVtzmAZAz4B0bzcngvPmQzXpJmICG-O5gN-y0i_m-kiyhE2Fw88Tw3Eg8isBInnuFfFbl1dty-x_xhunDpPM9UY-V8-XEoCsAH1KZXYF495vmComYtJh0Vlu8TUIglaL-hB2AkvV0uJyIJs70X5FVI9-A5c4VOXYnSS5birPvE5-v_6mcWntsefMKBkB4q_SpmmwAAAAHETnMdAA")
