@@ -34,7 +34,7 @@ def validate_config():
         API_ID = "27079591"
     if not API_HASH:
         print("WARNING: API HASH NOT FOUND USING UTTAM API ⚡")
-        API_HASH = "c81ae4c3dc026ea4bf49842a8ce4a5f9"
+        API_HASH = "34f9cb93364db16fc45d003e4c81d97a"
     if not BOT_TOKEN:
         raise ValueError("WARNING: BOT TOKEN NOT FOUND. PLEASE ADD ⚡")
 
