@@ -31,7 +31,7 @@ def validate_config():
     global API_ID, API_HASH
     if not API_ID:
         print("WARNING: API ID NOT FOUND USING UTTAM API ⚡")
-        API_ID = "27079591"
+        API_ID = "28362850"
     if not API_HASH:
         print("WARNING: API HASH NOT FOUND USING UTTAM API ⚡")
         API_HASH = "34f9cb93364db16fc45d003e4c81d97a"
