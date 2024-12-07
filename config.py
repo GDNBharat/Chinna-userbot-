@@ -10,7 +10,7 @@ API_ID = int(getenv("API_ID", "28362850")) #optional
 API_HASH = getenv("API_HASH", "34f9cb93364db16fc45d003e4c81d97a") #optional
 
 SUDO_USERS = list(map(int, getenv("SUDO_USERS", "7588442909").split()))
-OWNER_ID = int(getenv("OWNER_ID", "6641988750"))
+OWNER_ID = int(getenv("OWNER_ID", "7588442909"))
 MONGO_URL = getenv("MONGO_URL", "mongodb+srv://vishalpandeynkp:Bal6Y6FZeQeoAoqV@cluster0.dzgwt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 ALIVE_PIC = getenv("ALIVE_PIC", "")
 ALIVE_TEXT = getenv("ALIVE_TEXT")
